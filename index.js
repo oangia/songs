@@ -1,4 +1,5 @@
 const express = require('express');
+const functions = require('@google-cloud/functions-framework');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
@@ -21,8 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 const songsRoutes = require('./routes/songs');
 app.use('/', songsRoutes);
-
+functions.http('helloHttp',  app);
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+//app.listen(PORT, () => {
+//  console.log(`Server is running on port ${PORT}`);
+//});
