@@ -1,11 +1,10 @@
-const express = require('express');
 const functions = require('@google-cloud/functions-framework');
+const express = require('express');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
 const db = require('@oangia/services/db/v1.0.0/MongoDBService');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 db.init("mongodb+srv://hqnhatdn:abc123$$@cluster0.wnkrqan.mongodb.net/songsdb?retryWrites=true&w=majority").database("songsdb");
 // Set view engine
