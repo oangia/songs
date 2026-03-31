@@ -1,4 +1,4 @@
-const db = require('@oangia/services/db/v1.0.0/MongoDBService');
+const db = require('@oangia/services/db/MongoDBService');
 
 // Vietnamese to English transliteration mapping
 const vietnameseToEnglish = {
