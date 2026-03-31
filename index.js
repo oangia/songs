@@ -1,11 +1,17 @@
 const express = require('express');
+
+const db = require('@oangia/services/db/MongoDBService');
+const crudRouter = require('@oangia/services/db/crud.routes');
+const authRouter = require('@oangia/services/authentication/auth.routes');
+const songsRoutes = require('./routes/songs');
+
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
-const db = require('@oangia/services/db/MongoDBService');
-const crudRouter = require('@oangia/services/db/crud.routes');
+
 const app = express();
 
+require("./config.js");
 db.init(process.env.uri).database("songsdb");
 // Set view engine
 app.set('view engine', 'ejs');
@@ -19,8 +25,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
+app.use("/api/auth", authRouter);
 app.use('/api/', crudRouter(db));
-const songsRoutes = require('./routes/songs');
 app.use('/', songsRoutes);
 
 app.listen(8080, () => {
