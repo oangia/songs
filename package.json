@@ -2,12 +2,7 @@
   "name": "mohopam",
   "version": "1.0.0",
   "description": "Tìm hợp âm - Search songs by title or artist and view lyrics with chords",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "seed": "node seed.js"
-  },
+  "main": "index.js",
   "dependencies": {
     "@google-cloud/functions-framework": "^3.0.0",
     "@oangia/services": "^1.0.1-0",
