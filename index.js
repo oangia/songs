@@ -1,12 +1,11 @@
-const functions = require('@google-cloud/functions-framework');
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
-const db = require('@oangia/services/db/v1.0.0/MongoDBService');
+const db = require('@oangia/services/db/MongoDBService');
 const app = express();
 
-db.init("mongodb+srv://hqnhatdn:abc123$$@cluster0.wnkrqan.mongodb.net/songsdb?retryWrites=true&w=majority").database("songsdb");
+db.init(process.env.uri).database("songsdb");
 // Set view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -21,8 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 const songsRoutes = require('./routes/songs');
 app.use('/', songsRoutes);
-functions.http('helloHttp',  app);
-// Start server
-//app.listen(PORT, () => {
-//  console.log(`Server is running on port ${PORT}`);
-//});
+
+app.listen(8080, () => {
+  console.log(`Server is running on port ${8080}`);
+});
