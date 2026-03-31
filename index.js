@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
 const db = require('@oangia/services/db/MongoDBService');
+const crudRouter = require('@oangia/services/db/crud.routes');
 const app = express();
 
 db.init(process.env.uri).database("songsdb");
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
+app.use('/api/', crudRouter(db));
 const songsRoutes = require('./routes/songs');
 app.use('/', songsRoutes);
 
