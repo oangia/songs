@@ -3,7 +3,7 @@ Architecture:
 -- Availability
 -- Readability / Maintainability
 
-- Architech style
+- Architecture style
 -- Monolithic
 -- Layered (UI - Business - Microservices)
 

@@ -1,11 +1,10 @@
 <div class="bg-white rounded-lg shadow-md p-6">
-    <h1 class="text-3xl font-bold mb-2"><%= song.title %></h1>
-    <p class="text-xl text-gray-600 mb-4">by <%= song.performer %></p>
+  <h1 class="text-3xl font-bold mb-2"><%= song.title %></h1>
+  <p class="text-xl text-gray-600 mb-4">by <%= song.performer %></p>
 
-    <div class="mb-6">
-        <div class="bg-gray-50 p-4 rounded-lg whitespace-pre-line font-mono text-sm">
-            <%= song.chords %>
-            <%= song.lyrics %>
-        </div>
+  <div class="mb-6">
+    <div class="py-4 rounded-lg font-mono text-base space-y-4">
+      <%- song.chords %>
     </div>
+  </div>
 </div>
