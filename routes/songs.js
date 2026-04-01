@@ -34,32 +34,18 @@ const renderChords = (text) => {
   return text.split('\n').map(line => {
     if (!line.trim()) return '<p><br/></p>';
 
-    let chordLine = '';
-    let lyricLine = '';
-    let cursor = 0;
-
-    const regex = /\[([^\]]+)\]|([^\[]+)/g;
-    let match;
-
-    while ((match = regex.exec(line))) {
-      if (match[1]) {
-        const chord = `[${match[1]}]`;
-
-        // fill spaces to current cursor
-        while (chordLine.length < cursor) chordLine += ' ';
-
-        chordLine += chord;
-      } else {
-        const textPart = match[2];
-        lyricLine += textPart;
-        cursor += textPart.length;
-      }
-    }
+    const html = line.replace(/\[([^\]]+)\]\s*([^\s]+)/g, (_, chord, word) => {
+      return `
+        <span class="relative inline-block">
+          <span class="absolute -top-5 left-0 text-red-500 whitespace-nowrap">[${chord}]</span>
+          ${word}
+        </span>
+      `;
+    });
 
     return `
-      <p class="font-mono leading-tight">
-        <span class="block text-red-500 text-sm">${chordLine}</span>
-        <span class="block">${lyricLine}</span>
+      <p class="font-mono leading-[3]">
+        ${html}
       </p>
     `;
   }).join('');

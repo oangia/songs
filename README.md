@@ -37,3 +37,11 @@ Feature:
 
 Rules:
 - Fully  automatic
+
+Form:
+- Site title
+- Site description
+- Logo
+- Favicon
+- Header
+- Footer

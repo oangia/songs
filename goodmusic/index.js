@@ -17,7 +17,7 @@ const init = (config) => {
     // Middleware
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, '../../public')));
 
     if (config.db.uri != undefined) {
         db.init(config.db.uri).database(config.db.database);
