@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
 
-const db = require('@oangia/services/db/MongoDBService');
-const crudRouter = require('@oangia/services/db/crud.routes');
-const authRouter = require('@oangia/services/authentication/auth.routes');
+const db = require('goodmusic/db/MongoDBService');
+const crudRouter = require('goodmusic/db/crud.routes');
+const authRouter = require('goodmusic/authentication/auth.routes');
 
 const init = (config) => {
     const app = express();

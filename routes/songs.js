@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const db = require('@oangia/services/db/MongoDBService');
-const { slugify, vnlize } = require('@oangia/services/utils/string');
+const db = require('goodmusic/db/MongoDBService');
+const { slugify, vnlize } = require('goodmusic/utils/string');
 
 // Home
 router.get('/', async (req, res) => {

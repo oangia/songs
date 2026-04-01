@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const db = require("@oangia/services/db/MongoDBService");
-const Auth = require("@oangia/services/authentication/Auth");
-const Validator = require("@oangia/services/validation/Validator");
+const db = require("goodmusic/db/MongoDBService");
+const Auth = require("goodmusic/authentication/Auth");
+const Validator = require("goodmusic/validation/Validator");
 
 router.post("/register", async (req, res) => {
     const validator = Validator.make(
