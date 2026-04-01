@@ -1,6 +1,6 @@
-const express = require("@oangia/services");
+const goodmusic = require("goodmusic");
 
-const app = express({
+const app = goodmusic({
   db: { uri: process.env.uri || require("./config.js").uri, database: "songsdb" }
 })
 

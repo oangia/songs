@@ -18,21 +18,16 @@ router.get('/', async (req, res) => {
       pageTitle: 'mohopam – Hợp âm bài hát',
       pageDescription: 'Tìm kiếm và xem lời bài hát, hợp âm nhanh chóng.',
       pageKeywords: 'mohopam, lời bài hát, hợp âm',
-      canonical: 'https://your-domain.com/',
+      canonical: 'https://mohopam.com/',
       ogType: 'website',
       ogTitle: 'mohopam – Hợp âm bài hát',
       ogDescription: 'Tìm kiếm và xem lời bài hát, hợp âm nhanh chóng.',
-      ogUrl: 'https://your-domain.com/'
+      ogUrl: 'https://mohopam.com/'
     });
   } catch (e) {
     console.error(e);
     res.status(500).render('error', { message: 'Lỗi máy chủ' });
   }
-});
-
-// Ear training
-router.get('/ear-training', (req, res) => {
-  res.render('eartraining', { layout: false });
 });
 
 const renderChords = (text) => {
@@ -87,18 +82,18 @@ router.get('/:artistSlug/:songSlug', async (req, res) => {
       searchQuery,
       pageTitle: `${song.title} Hợp âm - mohopam`,
       pageDescription: `${song.title} bởi ${song.performer}`,
-      canonical: `https://your-domain.com/${artistSlug}/${song.slug}`,
+      canonical: `https://mohopam.com/${artistSlug}/${song.slug}`,
       ogType: 'article',
       ogTitle: `${song.title} - mohopam`,
       ogDescription: `${song.title} bởi ${song.performer}`,
-      ogUrl: `https://your-domain.com/${artistSlug}/${song.slug}`,
+      ogUrl: `https://mohopam.com/${artistSlug}/${song.slug}`,
       schema: {
         "@context": "https://schema.org",
         "@type": "MusicComposition",
         name: song.title,
         byArtist: song.performer,
         description: song.genre || 'Lời bài hát và hợp âm',
-        url: `https://your-domain.com/${artistSlug}/${song.slug}`
+        url: `https://mohopam.com/${artistSlug}/${song.slug}`
       }
     });
   } catch (e) {
@@ -107,14 +102,9 @@ router.get('/:artistSlug/:songSlug', async (req, res) => {
   }
 });
 
-// Create song
-router.post('/songs', async (req, res) => {
-  try {
-    res.redirect('/');
-  } catch (e) {
-    console.error(e);
-    res.status(500).render('error', { message: 'Lỗi khi tạo bài hát' });
-  }
+// Ear training
+router.get('/ear-training', (req, res) => {
+  res.render('eartraining', { layout: false });
 });
 
 module.exports = router;

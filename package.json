@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Tìm hợp âm - Search songs by title or artist and view lyrics with chords",
   "dependencies": {
-    "@oangia/services": "^1.0.0"
+    "goodmusic": "^1.0.0"
   },
   "devDependencies": {
     
