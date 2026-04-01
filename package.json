@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Tìm hợp âm - Search songs by title or artist and view lyrics with chords",
   "dependencies": {
-    "goodmusic": "^1.0.0"
-  },
-  "devDependencies": {
-    
+    "goodmusic": "^1.0.0",
+    "sharp": "^0.34.5",
+    "to-ico": "^1.1.5"
   },
   "keywords": [
     "songs",
