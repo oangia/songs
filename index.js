@@ -4,7 +4,6 @@ const app = goodmusic({
   db: { uri: process.env.uri || require("./config.js").uri, database: "songsdb" }
 })
 
-// Routes
 app.use('/', require('./routes/songs'));
 
 app.listen(8080, () => {

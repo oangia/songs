@@ -36,7 +36,7 @@ Feature:
 - Song detail page (show lyrics with chords)
 
 Rules:
-- Fully  automatic
+- Fully automatic
 
 Form:
 - Site title
@@ -45,3 +45,8 @@ Form:
 - Favicon
 - Header
 - Footer
+
+Law 6: Court Attention at all Cost
+Law 7: Get Others to Do the Work for You
+Law 13: Asking for Help Appeal to People's Self Interest
+Law 16: Use Absence to Increase Respect and Honor
