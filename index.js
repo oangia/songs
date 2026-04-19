@@ -6,6 +6,7 @@ const app = goodmusic({
 })
 
 app.use(cors());
+app.options("*", cors());
 
 app.use('/', require('./routes/songs'));
 
