@@ -84,12 +84,15 @@ class MongoDBService {
       }
     };
   }
-
+  
   async update(col, id, data) {
     await this.connect();
     return this.db.collection(col).updateOne(
-      { _id: new ObjectId(id) },
-      { $set: data }
+      { _id: ObjectId.isValid(id) ? new ObjectId(id) : id },
+      {
+        $set: data
+      },
+      { upsert: false }
     );
   }
 
