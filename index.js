@@ -7,6 +7,7 @@ const app = goodmusic({
 
 app.use(cors());
 
+
 app.use('/', require('./routes/songs'));
 
 app.listen(8080, () => {
