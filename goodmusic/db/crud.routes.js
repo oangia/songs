@@ -34,9 +34,20 @@ module.exports = function crudRouter(db) {
     res.json(await db.read(req.params.collection, req.params.id))
   );
 
-  router.put("/:collection/:id", async (req, res) =>
-    res.json(await db.update(req.params.collection, req.params.id, req.body))
-  );
+  router.put("/:collection/:id", async (req, res) => {
+    try {
+      const { collection, id } = req.params;
+  
+      const update = { ...req.body };
+      delete update._id; // NEVER allow _id update
+  
+      const result = await db.update(collection, id, update);
+  
+      res.json(result);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
 
   router.delete("/:collection/:id", async (req, res) =>
     res.json(await db.delete(req.params.collection, req.params.id))
