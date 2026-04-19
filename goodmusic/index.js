@@ -15,8 +15,9 @@ const init = (config) => {
     app.set('layout', 'layout');
 
     // Middleware
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+    app.use(bodyParser.json(limit: "10mb"));
+
     app.use(express.static(path.join(__dirname, '../../public')));
 
     if (config.db.uri != undefined) {
